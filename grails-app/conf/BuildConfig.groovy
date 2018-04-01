@@ -10,13 +10,15 @@ grails.project.dependency.resolution = {
 		mavenLocal() // Note: use 'grails maven-install' to install required plugins locally
 		grailsCentral()
 		mavenCentral()
-		mavenRepo 'http://ec2-35-170-59-132.compute-1.amazonaws.com:8080/artifactory/plugins-snapshots'
+		mavenRepo 'http://ec2-35-170-59-132.compute-1.amazonaws.com:8080/artifactory/libs-snapshots'
+		mavenRepo 'http://ec2-35-170-59-132.compute-1.amazonaws.com:8080/artifactory/libs-releases'
 		mavenRepo 'http://ec2-35-170-59-132.compute-1.amazonaws.com:8080/artifactory/plugins-releases'
+		mavenRepo 'http://ec2-35-170-59-132.compute-1.amazonaws.com:8080/artifactory/plugins-snapshots'
 		mavenRepo 'https://repo.transmartfoundation.org/content/repositories/public/'
 	}
 
 	dependencies {
-		compile 'org.transmartproject:transmart-core-api:16.2'
+		compile 'org.transmartproject:transmart-core-api:18.1-SNAPSHOT'
 
 		test 'org.hamcrest:hamcrest-library:1.3'
 		test 'org.hamcrest:hamcrest-core:1.3'
