@@ -19,6 +19,7 @@
 
 package org.transmartproject.db.user
 
+import org.transmart.plugin.shared.security.Roles
 import org.transmartproject.db.accesscontrol.AccessLevel
 import org.transmartproject.db.accesscontrol.SecuredObject
 import org.transmartproject.db.accesscontrol.SecuredObjectAccess
@@ -124,11 +125,11 @@ class AccessLevelTestData {
     List<RoleCoreDb> roles = {
         long id = -100L
         [
-                [authority: 'ROLE_ADMIN',                  description: 'admin user'],
-                [authority: 'ROLE_STUDY_OWNER',            description: 'study owner'],
-                [authority: 'ROLE_SPECTATOR',              description: 'spectator user'],
-                [authority: 'ROLE_DATASET_EXPLORER_ADMIN', description: 'dataset Explorer admin users - can view all trials'],
-                [authority: 'ROLE_PUBLIC_USER',            description: 'public user'],
+                [authority: Roles.ADMIN.authority,                  description: 'admin user'],
+                [authority: Roles.STUDY_OWNER.authority,            description: 'study owner'],
+                [authority: Roles.SPECTATOR.authority,              description: 'spectator user'],
+                [authority: Roles.DATASET_EXPLORER_ADMIN.authority, description: 'dataset Explorer admin users - can view all trials'],
+                [authority: Roles.PUBLIC_USER.authority,            description: 'public user'],
         ].collect {
             def role = new RoleCoreDb(it)
             role.id = --id
@@ -177,7 +178,7 @@ class AccessLevelTestData {
 
     List<User> users = {
         List<User> users = createUsers(6, -300L)
-        users[0].addToRoles(roles.find { it.authority == 'ROLE_ADMIN' })
+        users[0].addToRoles(roles.find { it.authority == Roles.ADMIN.authority })
 
         users[1].addToGroups(groups.find { it.category == 'group_-201' })
 
