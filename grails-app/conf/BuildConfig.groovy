@@ -33,6 +33,8 @@ grails.project.dependency.resolution = {
 			transitive = false
 			export = false
 		}
+
+		test 'org.grails:grails-datastore-test-support:1.0.2-grails-2.4'
 	}
 
 	plugins {
